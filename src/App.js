@@ -12,7 +12,7 @@ function App() {
           //TODO: add content from Sanity CMS here (or somewhere else)
           <br />
           <br />
-          Note: feel free to make any desired changes to the design, including
+          Note: feel free to make any desired changes to the design, e.g.,
           removing the dashed border
         </div>
       </section>
