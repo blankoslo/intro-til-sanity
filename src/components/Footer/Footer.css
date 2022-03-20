@@ -1,0 +1,12 @@
+.footer {
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blankRectangle {
+  height: 20px;
+  width: 80px;
+  background-color: #272d2a;
+}
