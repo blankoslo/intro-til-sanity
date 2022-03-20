@@ -1,20 +1,43 @@
+import { useState, useEffect } from "react";
+import client from "./client";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 function App() {
+  const [title, setTitle] = useState("");
+  const [allPosts, setAllPosts] = useState(null);
+
+  useEffect(() => {
+    client
+      .fetch(
+        `*[_type == "ventPage"][0] {
+          title,
+          posts
+        }`
+      )
+      .then((data) => {
+        setTitle(data.title);
+        setAllPosts(data.posts);
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <div className="App">
       <Header />
       <section className="main-section">
-        <h2 className="title">{"Ventilasjon"}</h2>
+        <h2 className="title">{title}</h2>
         <div className="content">
-          {"//TODO: add content from Sanity CMS here (or somewhere else)"}
-          <br />
-          <br />
-          {
-            "Note: feel free to make any desired changes to the design, e.g., removing the dashed border"
-          }
+          {allPosts &&
+            allPosts.map((post, idx) => (
+              <div className="post">
+                <span className="author">{"Anon:"}</span>
+                <p className="text" key={idx}>
+                  {post}
+                </p>
+              </div>
+            ))}
         </div>
       </section>
       <Footer />

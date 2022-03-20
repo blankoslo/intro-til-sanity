@@ -16,5 +16,20 @@
   min-height: 70vh;
   margin: 32px auto;
   padding: 16px;
-  border: 2px dashed #272d2a;
+}
+
+.post {
+  padding: 16px;
+  background-color: #272d2a;
+  color: #fffcb6;
+  margin-bottom: 24px;
+}
+
+.author {
+  font-weight: 600;
+}
+
+.text {
+  font-style: italic;
+  padding: 0 8px;
 }
