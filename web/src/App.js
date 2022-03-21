@@ -1,8 +1,31 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import client from "./client";
+
+/**
+ * _type == "<name-of-page-schema>"
+ */
+
+const query = `*[_type == ""][0] {
+  <fields>  
+}`;
 
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    // TODO: uncomment to fetch data from Sanity
+    // client
+    //   .fetch(query)
+    //   .then((data) => {
+    //     // TODO: do somthing with the data
+    //     setData(data);
+    //   })
+    //   .catch(console.error);
+  }, []);
+
   return (
     <div className="App">
       <Header />
