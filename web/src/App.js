@@ -40,11 +40,13 @@ function App() {
               <div key={idx} className="post">
                 <span className="author">{"Anon:"}</span>
                 <div style={{ padding: "0 8px" }}>
-                  <p className="text">{post.text}</p>
-                  <div className="imageContainer">
-                    <img src={urlFor(post.image).url()} className="image" />
-                    <p className="imageCaption">{`Caption: ${post.image.caption}`}</p>
-                  </div>
+                  {post.text && <p className="text">{post.text}</p>}
+                  {post.image && (
+                    <div className="imageContainer">
+                      <img src={urlFor(post.image).url()} className="image" />
+                      <p className="imageCaption">{`Caption: ${post.image.caption}`}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
