@@ -9,16 +9,9 @@ export default {
       type: "string",
     },
     {
-      name: "posts",
-      title: "Posts",
-      type: "array",
-      of: [
-        {
-          name: "text",
-          title: "Text",
-          type: "text",
-        },
-      ],
+      name: "text",
+      title: "Text",
+      type: "text",
     },
     {
       name: "image",

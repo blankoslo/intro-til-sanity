@@ -13,24 +13,18 @@ function urlFor(source) {
 function App() {
   const [title, setTitle] = useState(null);
   const [allPosts, setAllPosts] = useState(null);
-  const [imageRef, setImageRef] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
 
   useEffect(() => {
     client
       .fetch(
-        `*[_type == "ventPage"][0] {
+        `*[_type == "ventPageAdvanced"][0] {
           title,
-          posts,
-          "imageUrl": image.asset->url,
-          image          
+          posts,      
         }`
       )
       .then((data) => {
         setTitle(data.title);
         setAllPosts(data.posts);
-        setImageUrl(data.imageUrl);
-        setImageRef(data.image);
       })
       .catch(console.error);
   }, []);
@@ -45,12 +39,16 @@ function App() {
             allPosts.map((post, idx) => (
               <div key={idx} className="post">
                 <span className="author">{"Anon:"}</span>
-                <p className="text">{post}</p>
+                <div style={{ padding: "0 8px" }}>
+                  <p className="text">{post.text}</p>
+                  <div className="imageContainer">
+                    <img src={urlFor(post.image).url()} className="image" />
+                    <p className="imageCaption">{`Caption: ${post.image.caption}`}</p>
+                  </div>
+                </div>
               </div>
             ))}
         </div>
-        <img src={imageUrl} className="image" />
-        {/* <img src={urlFor(imageRef).width(350).url()} /> */}
       </section>
       <Footer />
     </div>

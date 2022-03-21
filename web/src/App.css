@@ -31,10 +31,17 @@
 
 .text {
   font-style: italic;
-  padding: 0 8px;
+}
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
 }
 
 .image {
-  height: 350px;
   width: 350px;
+}
+
+.imageCaption {
+  font-style: italic;
 }
