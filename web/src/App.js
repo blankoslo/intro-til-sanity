@@ -6,19 +6,19 @@ import Header from "./components/Header/Header";
 
 function App() {
   const [title, setTitle] = useState("");
-  const [allPosts, setAllPosts] = useState(null);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     client
       .fetch(
         `*[_type == "ventPage"][0] {
           title,
-          posts
+          text
         }`
       )
       .then((data) => {
         setTitle(data.title);
-        setAllPosts(data.posts);
+        setText(data.text);
       })
       .catch(console.error);
   }, []);
@@ -29,13 +29,7 @@ function App() {
       <section className="main-section">
         <h2 className="title">{title}</h2>
         <div className="content">
-          {allPosts &&
-            allPosts.map((post, idx) => (
-              <div key={idx} className="post">
-                <span className="author">{"Anon:"}</span>
-                <p className="text">{post}</p>
-              </div>
-            ))}
+          <p>{text}</p>
         </div>
       </section>
       <Footer />
