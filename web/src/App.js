@@ -31,11 +31,9 @@ function App() {
         <div className="content">
           {allPosts &&
             allPosts.map((post, idx) => (
-              <div className="post">
+              <div key={idx} className="post">
                 <span className="author">{"Anon:"}</span>
-                <p className="text" key={idx}>
-                  {post}
-                </p>
+                <p className="text">{post}</p>
               </div>
             ))}
         </div>
