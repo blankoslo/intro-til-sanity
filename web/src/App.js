@@ -11,24 +11,24 @@ function urlFor(source) {
 }
 
 function App() {
-  const [title, setTitle] = useState(null);
-  const [allPosts, setAllPosts] = useState(null);
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
   const [imageRef, setImageRef] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     client
       .fetch(
         `*[_type == "ventPage"][0] {
           title,
-          posts,
+          text,
           "imageUrl": image.asset->url,
           image          
         }`
       )
       .then((data) => {
         setTitle(data.title);
-        setAllPosts(data.posts);
+        setText(data.text);
         setImageUrl(data.imageUrl);
         setImageRef(data.image);
       })
@@ -41,16 +41,19 @@ function App() {
       <section className="main-section">
         <h2 className="title">{title}</h2>
         <div className="content">
-          {allPosts &&
-            allPosts.map((post, idx) => (
-              <div key={idx} className="post">
-                <span className="author">{"Anon:"}</span>
-                <p className="text">{post}</p>
-              </div>
-            ))}
+          <p>{text}</p>
+          <div className="imageContainer">
+            <strong>Med vanlig url (kjedelig):</strong>
+            <img src={imageUrl} className="image" />
+          </div>
+          {imageRef && (
+            <div className="imageContainer">
+              <strong>Med url-builder (gøy):</strong>
+              <img src={urlFor(imageRef).url()} className="image" />
+              <p className="imageCaption">{`Caption: ${imageRef.caption}`}</p>
+            </div>
+          )}
         </div>
-        <img src={imageUrl} className="image" />
-        {/* <img src={urlFor(imageRef).width(350).url()} /> */}
       </section>
       <Footer />
     </div>

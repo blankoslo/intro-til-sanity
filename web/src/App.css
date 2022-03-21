@@ -18,23 +18,21 @@
   padding: 16px;
 }
 
-.post {
-  padding: 16px;
-  background-color: #272d2a;
-  color: #fffcb6;
-  margin-bottom: 24px;
-}
-
-.author {
-  font-weight: 600;
-}
-
 .text {
   font-style: italic;
   padding: 0 8px;
 }
 
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
 .image {
-  height: 350px;
   width: 350px;
+}
+
+.imageCaption {
+  font-style: italic;
 }
