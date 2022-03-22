@@ -1,4 +1,4 @@
-/** TODO: utkommenter dette etter å ha installert @sanity/client med npm
+/** TODO_1: utkommenter dette etter å ha installert @sanity/client med npm
  import sanityClient from "@sanity/client";
  
  export default sanityClient({
