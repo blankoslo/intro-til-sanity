@@ -62,7 +62,11 @@ sanity start
 * Legg inn mulighet for å legge til bilder i Sanity
 * Vis frem bilder fra Sanity på nettsiden
 * Bonus: Legg til mulighet for “crop” og “hot-spot”
-https://www.sanity.io/docs/presenting-images
+* Tips: For å bruke crop og hotspot må du installere sanity image-url slik som dette
+```
+npm install @sanity/image-url
+```
+* Du kan lese mer om crop og hotspot her: https://www.sanity.io/docs/presenting-images
 
 
 ## Oppgave 3
