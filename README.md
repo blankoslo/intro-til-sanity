@@ -3,6 +3,8 @@
 Hvis du ikke har Node og npm:
 https://kinsta.com/blog/how-to-install-node-js/
 
+Hvis du ikke har en god tekst-editor, last ned VS Code her: https://code.visualstudio.com
+
 Hvis du har Git
 ```
 git clone https://github.com/blankoslo/intro-til-sanity.git
@@ -19,6 +21,7 @@ cd web
 npm install
 npm start
 ```
+Gå til http://localhost:3000
 
 ## Oppgave 0
 * Forutsetninger:
